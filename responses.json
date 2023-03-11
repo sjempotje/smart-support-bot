@@ -12,15 +12,19 @@
     "content": "Sorry to hear that your launcher is stuck on 99%, can you send us the console logs?"
   },
   {
-    "key": "^(?=.*\\b[optifine]\\b)(?=.*\\b(?:(?:doesn't|isn't|can't|won't|unable to)\\s+\\w+){1,3}\\b).*",
-    "content": "Optifine not working? Did you extract the jar file and put it in your **libraries** folder instead of the regular mods folder?"
-  },
-  {
     "key": "\\b(?:E(?:TIMEDOUT|HOSTUNREACH|CONNRESET|NETUNREACH)|ESOCKETTIMEDOUT)\\b",
     "content": "ETIMEDOUT - A network connection timed out before completing. \nEHOSTUNREACH - A network connection was attempted to a remote host that is unreachable. \nECONNRESET - A network connection was reset by the remote host. \nENETUNREACH - A network connection was attempted through an unreachable network. \nESOCKETTIMEDOUT - A socket operation timed out before completing."
   },
   {
     "key": "/^(?=.*This site requires Javascript to work, please enable Javascript in your browser or use a browser\\s+with Javascript support).*$/mgi",
     "content": "You better off switching to a different webhosting provider. Free webhosting providers always provide junk in your files."
+  },
+  {
+    "key": "/^(?=.*99%|A3|launcher stuck).*$/mgi",
+    "content": "Sorry to hear that your launcher is stuck on 99%, can you send us the console logs?"
+  },
+  {
+    "key": "/^(?=.*downloading files).*$/mgi",
+    "content": "Sorry to hear that your launcher is stuck? What is the error you are getting?"
   }
 ]
