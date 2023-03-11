@@ -25,11 +25,14 @@ class ContentValidator {
      */
     validateContent(message) {
         return new Promise(async (resolve, reject) => {
-            //check if message is url
             if (urls.allowed_urls.findIndex(url => message.content.startsWith(url)) !== -1) {
                 if (message.content.match(urlExpression)) {
+                    if (message.content.startsWith(urls.allowed_urls[0])) {
+                        let id = message.content.split('/').pop()
+                        message.content = `${urls.allowed_urls[0]}/raw/${id}`
+                    }
                     let text = await this.parseUrl(message).catch(reject);
-                    return resolve(this.checkMatches(text));
+                    return resolve(this.checkMatches(text))
                 }
             }
 
@@ -88,6 +91,7 @@ class ContentValidator {
             let response = await axios.get(message.content, {
                 maxContentLength: urls.max_content_size_in_bytes
             }).catch(reject)
+            await message.react(images.message_reaction)
 
             typeof response.data == 'string'
                 ? resolve(response.data)
